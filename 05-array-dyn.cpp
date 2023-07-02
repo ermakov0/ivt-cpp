@@ -8,7 +8,7 @@ using namespace std;
  *
  * В одномерном массиве хранится информация о результатах соревнования
  * по плаванию (время заплыва спортсменов в секундах).
- * Необходимо найти среднее время заплыва.
+ * Необходимо найти наилучшее время заплыва.
  * Ввод значений массива производится с клавиатуры.
  *
  * @return 0 - всё ок, 1 - ошибка ввода
@@ -16,28 +16,34 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "ru");
 
-    const size_t MAX_SIZE = 50;
-    /// Массив для хранения времени заплыва спортсменов
-    int array[MAX_SIZE];
     size_t count;
     cout << "Укажите количество спортсменов: ";
     cin >> count;
-    if (count == 0 || count > MAX_SIZE) {
-        cerr << "Ошибка: количество должно находиться в диапазоне [1; "
-            << MAX_SIZE << "]" << endl;
+    if (count == 0) {
+        cerr << "Ошибка: количество должно быть больше нуля." << endl;
         return 1;
     }
+
+    /// Указатель на массив
+    int* array;
+    // выделение памяти динамического массива
+    array = new int[count];
+
     cout << "Введите время заплыва спортсменов (в секундах):\n";
     for (size_t i = 0; i < count; i++) {
         cin >> array[i];
         // TODO array[i] > 0
     }
 
-    double average = 0.0;
-    for (size_t i = 0; i < count; i++) {
-        average += array[i];
+    int min = array[0];
+    for (size_t i = 1; i < count; i++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
     }
-    average /= count;
 
-    cout << "Среднее время заплыва=" << average << endl;
+    // освобождение памяти динамического массива
+    delete[] array;
+
+    cout << "Лучшее время заплыва=" << min << endl;
 }
