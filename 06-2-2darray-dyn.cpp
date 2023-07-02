@@ -29,7 +29,8 @@ int main() {
     array = new int* [count];
     for (size_t i = 0; i < count; i++) {
         // Выделение памяти под строки матрицы
-        array[i] = new int[COLS];
+        // последний элемент массива - сумма оценок
+        array[i] = new int[COLS + 1];
     }
 
     cout << "Укажите баллы спортсменов-пятиборцев (" << COLS << " в строке)\n";
@@ -40,11 +41,11 @@ int main() {
         }
     }
 
-    int* sums = new int[count];
+    // int* sums = new int[count];
     for (size_t i = 0; i < count; i++) {
-        sums[i] = 0;
+        array[i][COLS] = 0;
         for (size_t j = 0; j < COLS; j++) {
-            sums[i] += array[i][j];
+            array[i][COLS] += array[i][j];
         }
     }
 
@@ -53,7 +54,7 @@ int main() {
         for (size_t j = 0; j < COLS; j++) {
             cout << array[i][j] << "\t";
         }
-        cout << "| " << sums[i] << "\n";
+        cout << "| " << array[i][COLS] << "\n";
     }
 
     // сортировка массива пузырьком по возрастанию и перестановка строк матрицы
@@ -83,10 +84,10 @@ int main() {
         for (size_t j = 0; j < COLS; j++) {
             cout << array[i][j] << "\t";
         }
-        cout << "| " << sums[i] << "\n";
+        cout << "| " << array[i][COLS] << "\n";
     }
 
-    delete[] sums;
+    // delete[] sums;
     for (size_t i = 0; i < count; i++) {
         delete[] array[i];
     }
