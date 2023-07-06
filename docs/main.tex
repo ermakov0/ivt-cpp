@@ -1,0 +1,93 @@
+% lualatex
+\documentclass[twoside,a5paper,10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{fontspec}
+\setmainfont{Noto Serif}
+%\setmainfont{Noto Sans Mono}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+
+\usepackage[
+    twoside, 
+    includehead, 
+    margin=10mm, 
+    % left=25mm, 
+    bottom=15mm,
+    headsep=2mm
+]{geometry}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{subfiles}
+%\usepackage{amsmath}
+%\usepackage{multicol}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\fontsize{10}{12}\rightmark}
+
+\usepackage{titlesec}
+% \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{}{20pt}{\Huge}
+% \titlespacing*{\chapter}{0pt}{-36pt}{12pt}
+% \titlespacing*{\section}{0pt}{12pt}{12pt}    % l t b
+% \titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\titleformat{\chapter}[block]{\centering\fontsize{10pt}{16pt}\selectfont\bf}{}{12pt}{}
+\titleformat{\section}[block]{\centering\fontsize{10pt}{16pt}\selectfont\bf}{}{12pt}{}
+
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{defffis}{ --- }
+\captionsetup{justification=centering,labelsep=defffis}
+
+% https://tex.stackexchange.com/questions/23921/how-to-shorten-shrink-spaces-between-words
+\fontdimen3\font=3pt
+\hfuzz=5pt
+
+\usepackage{listings}
+\lstset{
+    basicstyle=\small,
+    numbers=left,
+    language=C++,
+    frame=single,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=false,
+    stringstyle=\ttfamily,
+    mathescape=true,
+    commentstyle=\color{red},
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    bookmarks=true,
+%    pdftitle={Методические указания л/р ИВТ},
+    pdfauthor={Ермаков А.В., Сучкова Л.И.},
+}
+
+% \directlua{require("drawboxes")}
+% \AtBeginShipout{\directlua{drawboxes.visual_debug()}}
+
+\begin{document}
+\subfile{00-page1}
+\subfile{00-page2}
+% \newpage
+\tableofcontents
+\subfile{00}
+\subfile{01}
+% \subfile{02}
+%\subfile{03}
+\subfile{99-ref}
+\end{document}
