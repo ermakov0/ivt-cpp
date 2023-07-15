@@ -37,15 +37,15 @@
 
 \usepackage{titlesec}
 % \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{}{20pt}{\Huge}
-% \titlespacing*{\chapter}{0pt}{-36pt}{12pt}
+\titlespacing*{\chapter}{0pt}{-40pt}{15pt}
 % \titlespacing*{\section}{0pt}{12pt}{12pt}    % l t b
 % \titlespacing*{\subsection}{0pt}{6pt}{6pt}
 \titleformat{\chapter}[block]{\centering\fontsize{10pt}{16pt}\selectfont\bf}{}{12pt}{}
 \titleformat{\section}[block]{\centering\fontsize{10pt}{16pt}\selectfont\bf}{}{12pt}{}
 
 \RequirePackage{caption}
-\DeclareCaptionLabelSeparator{defffis}{ --- }
-\captionsetup{justification=centering,labelsep=defffis}
+\DeclareCaptionLabelSeparator{dash}{ --- }
+\captionsetup{justification=centering,labelsep=dash}
 
 % https://tex.stackexchange.com/questions/23921/how-to-shorten-shrink-spaces-between-words
 \fontdimen3\font=3pt
@@ -61,8 +61,9 @@
     breaklines=true,
     breakatwhitespace=false,
     stringstyle=\ttfamily,
-    mathescape=true,
+    % mathescape=true,
     commentstyle=\color{red},
+    keepspaces=true,
 }
 
 \usepackage{hyperref}
@@ -73,7 +74,7 @@
     urlcolor=cyan,
     citecolor=red,
     bookmarks=true,
-%    pdftitle={Методические указания л/р ИВТ},
+    pdftitle={Методические указания к выполнению лабораторных работ по дисциплине «Программирование на C++» для очной формы обучения},
     pdfauthor={Ермаков А.В., Сучкова Л.И.},
 }
 
@@ -81,13 +82,19 @@
 % \AtBeginShipout{\directlua{drawboxes.visual_debug()}}
 
 \begin{document}
+
 \subfile{00-page1}
 \subfile{00-page2}
 % \newpage
 \tableofcontents
 \subfile{00}
+
 \subfile{01}
-% \subfile{02}
+\subfile{02}
 %\subfile{03}
 \subfile{99-ref}
+
+\appendix
+\subfile{app02}
+
 \end{document}

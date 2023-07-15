@@ -10,7 +10,7 @@
  *
  * В треугольнике заданы две стороны а, b и угол напротив одной из них А.
  * Определить сторону с, углы B и С и площадь треугольника S
- * (линейные размеры вводить и выводить в см, площадь - в см2, углы - в градусах)
+ * (линейные размеры вводить и выводить в см, площадь в см2, углы в градусах)
 */
 int main() {
     setlocale(LC_ALL, "ru");
@@ -23,14 +23,14 @@ int main() {
     scanf_s("%lf", &angle_a);
 
     // вычисление углов В и С
-    double angle_a_rad = angle_a * PI / 180;              // перевод угла А в радианы
-    double angle_b_rad = asin(b / a * sin(angle_a_rad));  // из теоремы синусов
-    double angle_b = angle_b_rad * 180 / PI;              // перевод угла B в градусы
+    double angle_a_rad = angle_a * PI / 180;
+    double angle_b_rad = asin(b / a * sin(angle_a_rad));
+    double angle_b = angle_b_rad * 180 / PI;              
     double angle_c = 180 - (angle_a + angle_b);
     double angle_c_rad = angle_c * PI / 180;
 
     // вычисление стороны с и площади треугольника
-    double c = a * sin(angle_c_rad) / sin(angle_a_rad);  // из теоремы синусов
+    double c = a * sin(angle_c_rad) / sin(angle_a_rad);
     double s = 1.0 / 2 * a * b * sin(angle_c_rad);
 
     printf("Результаты:\n");
