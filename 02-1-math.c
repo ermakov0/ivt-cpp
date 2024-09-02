@@ -33,13 +33,13 @@ int main(void) {
     printf("Введите угол А (град): ");
     scanf_s("%lf", &a_deg);
 
-	// перевод из градусов в радианы
+    // перевод из градусов в радианы
     double a_rad = a_deg * PI / 180;
     double b_rad = asin(b_cm / a_cm * sin(a_rad));
-	// перевод из радиан в градусы    
-	double b_deg = b_rad * 180 / PI;
+    // перевод из радиан в градусы    
+    double b_deg = b_rad * 180 / PI;
     double c_deg = 180 - (a_deg + b_deg);
-	// перевод из градусов в радианы
+    // перевод из градусов в радианы
     double c_rad = c_deg * PI / 180;
 
     // вычисление стороны с и площади треугольника
@@ -50,7 +50,7 @@ int main(void) {
     printf("Сторона с=%.2lf см\n", c_cm);
     printf("Углы В=%.2lf град, С=%.2lf град\n", b_deg, c_deg);
     printf("Площадь S=%.2lf см2\n", s_cm2);
-	
-	return 0;
+    
+    return 0;
 }
 //}

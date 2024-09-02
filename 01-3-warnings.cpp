@@ -12,5 +12,5 @@ int main() {
     int var = 42;
     // Предупреждение	C4101	unusing : неиспользованная локальная переменная
     int unusing;
-	return 0;
+    return 0;
 }
