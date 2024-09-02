@@ -1,41 +1,56 @@
+/**
+ * Л/р 2 Линейный вычислительный процесс
+ *
+ * В треугольнике заданы две стороны а, b и угол напротив одной из них А.
+ * Определить сторону с, углы B и С и площадь треугольника S
+ * (линейные размеры вводить и выводить в см, площадь в см2, углы в градусах)
+ * 
+ * ПРИМЕР:
+```
+Введите стороны а и b (см): 3.0 4.5
+Введите угол А (град): 21.9
+Результаты:
+Сторона с=6.66 см
+Углы В=34.02 град, С=124.08 град
+Площадь S=5.59 см2
+```
+*/
 #include <iostream>
 #include <iomanip>
-#include <clocale>
 #include <cmath>
+#include <windows.h>
 
 using namespace std;
 
 const double PI = 3.14159265358979323846;
 
-/**
- * @brief Л/р 2 Линейный вычислительный процесс
- *
- * В треугольнике заданы две стороны а, b и угол напротив одной из них А.
- * Определить сторону с, углы B и С и площадь треугольника S
- * (линейные размеры вводить и выводить в см, площадь в см2, углы в градусах)
-*/
 int main() {
-    setlocale(LC_ALL, "ru");
+    system("chcp 1251 > nul");
 
-    double a, b, angle_a;
+    double a_cm, b_cm, a_deg;
     cout << "Введите стороны а и b (см): ";
-    cin >> a >> b;
+    cin >> a_cm >> b_cm;
     cout << "Введите угол А (град): ";
-    cin >> angle_a;
+    cin >> a_deg;
 
-    double angle_a_rad = angle_a * PI / 180;
-    double angle_b_rad = asin(b / a * sin(angle_a_rad)); 
-    double angle_b = angle_b_rad * 180 / PI;
-    double angle_c = 180 - (angle_a + angle_b);
-    double angle_c_rad = angle_c * PI / 180;
+    // перевод из градусов в радианы
+    double a_rad = a_deg * PI / 180;
+    double b_rad = asin(b_cm / a_cm * sin(a_rad));
+    // перевод из радиан в градусы    
+    double b_deg = b_rad * 180 / PI;
+    double c_deg = 180 - (a_deg + b_deg);
+    // перевод из градусов в радианы
+    double c_rad = c_deg * PI / 180;
 
     // вычисление стороны с и площади треугольника
-    double c = a * sin(angle_c_rad) / sin(angle_a_rad);
-    double s = 1.0 / 2 * a * b * sin(angle_c_rad);
+    double c_cm = a_cm * sin(c_rad) / sin(a_rad);
+    double s_cm2 = 1.0 / 2 * a_cm * b_cm * sin(c_rad);
 
     cout << fixed << setprecision(2);
     cout << "Результаты:\n"
-        << "Сторона с=" << c << " см\n"
-        << "Углы В=" << angle_b << " град, С=" << angle_c << " град\n"
-        << "Площадь S=" << s << " см2" << endl;
+        << "Сторона с=" << c_cm << " см\n"
+        << "Углы В=" << b_deg << " град, С=" << c_deg << " град\n"
+        << "Площадь S=" << s_cm2 << " см2" << endl;
+
+    return 0;
 }
