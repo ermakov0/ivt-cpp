@@ -1,11 +1,5 @@
-#include <iostream>
-#include <clocale>
-#include <cmath>
-
-using namespace std;
-
 /**
- * @brief Л/р 3 ветвящийся вычислительный процесс
+ * Л/р 3 Ветвящийся вычислительный процесс
  *
  * Известно, что для каждого человека существует оптимальное значение веса,
  * которое можно вычислить по формуле: Рост (см) - 100.
@@ -14,42 +8,74 @@ using namespace std;
  * Программа запрашивает вес и рост, вычисляет оптимальное значение,
  * сравнивает его с реальным весом и выводит сообщение.
  *
- * @return 0 - всё ок, 1 - ошибка ввода
+ * ПРИМЕРЫ:
+```
+Укажите ваш вес (кг): 70.009
+Укажите ваш рост (см): 170
+Оптимальный вес = рост - 100 = 70.00 кг.
+Вы в хорошей форме!
+```
+```
+Укажите ваш вес (кг): 74
+Укажите ваш рост (см): 170
+Оптимальный вес = рост - 100 = 70.00 кг.
+Надо похудеть на 4.00 кг.
+```
+```
+Укажите ваш вес (кг): 65.1
+Укажите ваш рост (см): 170
+Оптимальный вес = рост - 100 = 70.00 кг.
+Вам нужно поправиться на 4.90 кг.
+```
 */
-int main() {
-    setlocale(LC_ALL, "ru");
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <windows.h>
 
-    /// Точность вычислений
+int main()
+{
+    system("chcp 1251 > nul");
+    std::cout << std::fixed << std::setprecision(2);
+
+    // Точность вычислений
     const double E = 0.01;
-    double weight, height;
 
-    cout << "Укажите ваш вес (кг): ";
-    cin >> weight;
-    cout << "Укажите ваш рост (см): ";
-    cin >> height;
+    double weight_kg, height_cm;
+
+    std::cout << "Укажите ваш вес (кг): ";
+    std::cin >> weight_kg;
+    std::cout << "Укажите ваш рост (см): ";
+    std::cin >> height_cm;
 
     // валидация пользовательского ввода
-    if (weight <= 0.0) {
-        cerr << "Ошибка: вес должен быть больше нуля" << endl;
+    if (weight_kg <= 0.0)
+    {
+        std::cerr << "Ошибка: вес должен быть больше нуля" << std::endl;
         return 1;
     }
-    if (height <= 0.0) {
-        cerr << "Ошибка: рост должен быть больше нуля" << endl;
+    if (height_cm <= 0.0)
+    {
+        std::cerr << "Ошибка: рост должен быть больше нуля" << std::endl;
         return 1;
     }
 
-    /// Оптимальный вес
-    double result = height - 100.0;
-    cout << "Оптимальный вес = рост - 100 = " << result << " кг." << endl;
+    // Оптимальный вес
+    double result_kg = height_cm - 100.0;
+    std::cout << "Оптимальный вес = рост - 100 = " << result_kg << " кг." << std::endl;
 
-    // if (weight == result) {
-    if (abs(weight - result) < E) {
-        cout << "Вы в хорошей форме!" << endl;
+    // if (weight == result) - вещественные типы нельзя сравнивать на строгое равенство/неравенство
+    if (std::abs(weight_kg - result_kg) < E)
+    {
+        std::cout << "Вы в хорошей форме!" << std::endl;
     }
-    else if (weight > result) {
-        cout << "Надо похудеть на " << (weight - result) << " кг." << endl;
+    else if (weight_kg > result_kg)
+    {
+        std::cout << "Надо похудеть на " << (weight_kg - result_kg) << " кг." << std::endl;
     }
-    else {
-        cout << "Вам нужно поправиться на " << (result - weight) << " кг." << endl;
+    else
+    {
+        std::cout << "Вам нужно поправиться на " << (result_kg - weight_kg) << " кг." << std::endl;
     }
+    return 0;
 }

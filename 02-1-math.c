@@ -23,7 +23,8 @@
 
 #define PI 3.14159265358979323846
 
-int main(void) {
+int main(void)
+{
     system("chcp 1251 > nul");
 
     double a_cm, b_cm, a_deg;

@@ -1,28 +1,43 @@
-#include <iostream>
-#include <clocale>
-
-using namespace std;
-
 /**
- * @brief Л/р 3 ветвящийся вычислительный процесс
+ * Л/р 3 Ветвящийся вычислительный процесс
  *
- * Программа пересчитывает вес из фунтов в килограммы.
+ * Пересчёт веса из фунтов в килограммы.
  *
- * @return 0 - всё ок, 1 - ошибка ввода
+ * ПРИМЕР:
+```
+Укажите вес в фунтах: 42
+0 - Россия
+1 - Англия
+2 - Австрия
+3 - Германия
+4 - Дания
+5 - Исландия
+6 - Италия
+Выберите страну: 0
+42.000 ф. - это 17.048 кг.
+```
 */
-int main() {
-    setlocale(LC_ALL, "ru");
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <windows.h>
 
-    double funt;
-    cout << "Укажите вес в фунтах: ";
-    cin >> funt;
-    if (funt <= 0.0) {
-        cerr << "Ошибка: значение должно быть больше нуля" << endl;
+int main()
+{
+    system("chcp 1251 > nul");
+    std::cout << std::fixed << std::setprecision(3);
+
+    double weight_funt;
+    std::cout << "Укажите вес в фунтах: ";
+    std::cin >> weight_funt;
+    if (weight_funt <= 0.0)
+    {
+        std::cerr << "Ошибка: значение должно быть больше нуля" << std::endl;
         return 1;
     }
 
     int country;
-    cout << "0 - Россия\n"
+    std::cout << "0 - Россия\n"
         << "1 - Англия\n"
         << "2 - Австрия\n"
         << "3 - Германия\n"
@@ -30,9 +45,9 @@ int main() {
         << "5 - Исландия\n"
         << "6 - Италия\n"
         << "Выберите страну: ";
-    cin >> country;
+    std::cin >> country;
 
-    /// Коэффициент перерасчета
+    // Коэффициент перерасчета
     double k;
     switch (country)
     {
@@ -43,12 +58,12 @@ int main() {
     case 4: k = 0.5; break;
     case 5: k = 0.5; break;
     case 6: k = 0.31762; break;
-    default: {
-        cerr << "Ошибка: неизвестная страна" << endl;
+    default:
+        std::cerr << "Ошибка: неизвестная страна" << std::endl;
         return 1;
     }
-    }  // end switch
 
-    double result = k * funt;
-    cout << funt << " ф. - это " << result << " кг." << endl;
+    double weight_kg = k * weight_funt;
+    std::cout << weight_funt << " ф. - это " << weight_kg << " кг." << std::endl;
+    return 0;
 }
