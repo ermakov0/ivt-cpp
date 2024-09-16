@@ -25,8 +25,8 @@
 Ошибка: день недели должен находиться в диапазоне [1; 7]
 ```
 */
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <windows.h>
 
 int main()
@@ -35,7 +35,7 @@ int main()
     std::cout << std::fixed << std::setprecision(2);
 
     // Цена минуты разговора (рублей)
-    const double PAY = 0.15;
+    const double PAY_RUB_IN_M = 0.15;
     // Величина скидки
     const double DISCOUNT = 0.2;
 
@@ -60,7 +60,7 @@ int main()
     }
 
     // вычислить стоимость разговора
-    double result_rub = PAY * duration_m;
+    double result_rub = PAY_RUB_IN_M * duration_m;
 
     // Если день суббота или воскресенье, то
     // уменьшить стоимость на величину скидки

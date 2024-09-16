@@ -28,18 +28,18 @@
 Вам нужно поправиться на 4.90 кг.
 ```
 */
-#include <iostream>
-#include <iomanip>
 #include <cmath>
+#include <iomanip>
+#include <iostream>
 #include <windows.h>
+
+// Точность вычислений
+const double E = 0.01;
 
 int main()
 {
     system("chcp 1251 > nul");
     std::cout << std::fixed << std::setprecision(2);
-
-    // Точность вычислений
-    const double E = 0.01;
 
     double weight_kg, height_cm;
 

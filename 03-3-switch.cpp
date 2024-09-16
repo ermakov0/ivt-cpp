@@ -17,9 +17,8 @@
 42.000 ф. - это 17.048 кг.
 ```
 */
-#include <iostream>
 #include <iomanip>
-#include <cmath>
+#include <iostream>
 #include <windows.h>
 
 int main()

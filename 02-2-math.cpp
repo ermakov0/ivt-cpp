@@ -15,9 +15,9 @@
 Площадь S=5.59 см2
 ```
 */
-#include <iostream>
-#include <iomanip>
 #include <cmath>
+#include <iomanip>
+#include <iostream>
 #include <windows.h>
 
 //using namespace std;

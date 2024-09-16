@@ -16,10 +16,10 @@
 ```
 */
 //extern "C" {
-#include <stdio.h>
-#include <windows.h>
 // #define _USE_MATH_DEFINES
 #include <math.h>
+#include <stdio.h>
+#include <windows.h>
 
 #define PI 3.14159265358979323846
 

@@ -1,49 +1,68 @@
-#include <iostream>
-#include <clocale>
-
-using namespace std;
-
 /**
- * @brief Л/р 5 Одномерные массивы
+ * Л/р 5 Одномерные массивы
  *
  * В одномерном массиве хранится информация о результатах соревнования
  * по плаванию (время заплыва спортсменов в секундах).
  * Необходимо найти наилучшее время заплыва.
  * Ввод значений массива производится с клавиатуры.
  *
- * @return 0 - всё ок, 1 - ошибка ввода
+ * ПРИМЕР:
+```
+Укажите количество спортсменов: 5
+Введите время заплыва спортсменов (в секундах):
+5
+4.5
+20.4
+3
+4
+Лучшее время заплыва=3 с.
+```
 */
-int main() {
-    setlocale(LC_ALL, "ru");
+#include <iomanip>
+#include <iostream>
+#include <windows.h>
+
+int main()
+{
+    system("chcp 1251 > nul");
+    std::cout << std::fixed << std::setprecision(2);
 
     size_t count;
-    cout << "Укажите количество спортсменов: ";
-    cin >> count;
+    std::cout << "Укажите количество спортсменов: ";
+    std::cin >> count;
     if (count == 0) {
-        cerr << "Ошибка: количество должно быть больше нуля." << endl;
+        std::cerr << "Ошибка: количество должно быть больше нуля." << std::endl;
         return 1;
     }
 
-    /// Указатель на динамический массив
-    int* array;
+    // Указатель на динамический массив
+    double* array_s;
     // динамическое выделение памяти динамического массива
-    array = new int[count];
+    array_s = new double[count];
 
-    cout << "Введите время заплыва спортсменов (в секундах):\n";
-    for (size_t i = 0; i < count; i++) {
-        cin >> array[i];
-        // TODO array[i] > 0
+    std::cout << "Введите время заплыва спортсменов (в секундах):\n";
+    for (size_t i = 0; i < count; ++i)
+    {
+        std::cin >> array_s[i];
+        if (array_s[i] <= 0.0)
+        {
+            std::cerr << "Ошибка: время должно быть больше нуля" << std::endl;
+            return 1;
+        }
     }
 
-    int min = array[0];
-    for (size_t i = 1; i < count; i++) {
-        if (array[i] < min) {
-            min = array[i];
+    int min_s = array_s[0];
+    for (size_t i = 1; i < count; ++i)
+    {
+        if (array_s[i] < min_s)
+        {
+            min_s = array_s[i];
         }
     }
 
     // освобождение памяти динамического массива
-    delete[] array;
+    delete[] array_s;
 
-    cout << "Лучшее время заплыва=" << min << endl;
+    std::cout << "Лучшее время заплыва=" << min_s << " с." << std::endl;
+    return 0;
 }
