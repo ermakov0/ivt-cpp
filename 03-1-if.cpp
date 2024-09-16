@@ -53,7 +53,8 @@ int main()
         std::cerr << "Ошибка: длительность должна быть положительным числом" << std::endl;
         return 1;
     }
-    if (!(1 <= day_week && day_week <= 7))
+    //if (!(1 <= day_week && day_week <= 7))
+    if (day_week < 1 || day_week > 7)
     {
         std::cerr << "Ошибка: день недели должен находиться в диапазоне [1; 7]" << std::endl;
         return 1;
