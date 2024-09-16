@@ -1,86 +1,39 @@
+/**
+ * Л/р 7 Функции
+ *
+ * ПРИМЕР:
+```
+sum(10023) = 6
+sum(10023, result2/*out/) = 6
+sum(10023, &result3) = 6
+```
+*/
+#include <assert.h>
 #include <iostream>
-#include <clocale>
+#include <windows.h>
+#include "07-2-func.h"
 
-using namespace std;
-
-// Объявления функций
-
-/**
- * @brief Сумма цифр числа
- * @param number Положительное число
- * @return Сумма цифр числа
-*/
-int sum(int number);
-
-/**
- * @brief Сумма цифр числа
- * @param number Положительное число
- * @param result Возвращает сумму цифр числа по ссылке
-*/
-void sum(int number, int& result/*out*/);
-
-/**
- * @brief Сумма цифр числа
- * @param number Положительное число
- * @param result Возвращает сумму цифр числа по указателю
-*/
-void sum(int number, int* result/*out*/);
-
-
-/**
- * @brief Л/р 7 Функции
-*/
-int main() {
-    setlocale(LC_ALL, "ru");
+/// <summary>
+/// Точка входа в программу
+/// </summary>
+int main()
+{
+    system("chcp 1251 > nul");
 
     const int number = 10023;
 
     // Возврат результата
     int result1 = sum(number);
-    cout << "sum(" << number << ") = " << result1 << endl;
+    std::cout << "sum(" << number << ") = " << result1 << std::endl;
 
     // Возврат результата через аргумент-ссылку
     int result2;
     sum(number, result2/*out*/);
-    cout << "sum(" << number << ", result2/*out*/) = " << result2 << endl;
+    std::cout << "sum(" << number << ", result2/*out*/) = " << result2 << std::endl;
 
     // Возврат результата через аргумент-указатель
     int result3;
     sum(number, &result3);
-    cout << "sum(" << number << ", &result3) = " << result3 << endl;
-}
-
-// Определения функций
-
-int sum(int number) {
-    int result = 0;
-    while (number != 0) {
-        result += number % 10;
-        number /= 10;
-    }
-    return result;
-}
-
-void sum(int number, int& result/*out*/) {
-    /*
-    result = 0;
-    while (number != 0) {
-        result += number % 10;
-        number /= 10;
-    }
-    */
-    // Вызов перегруженной функции, чтобы не дублировать код
-    result = sum(number);
-}
-
-void sum(int number, int* result/*out*/) {
-    /*
-    *result = 0;
-    while (number != 0) {
-        *result += number % 10;
-        number /= 10;
-    }
-    */
-    // Вызов перегруженной функции, чтобы не дублировать код
-    *result = sum(number);
+    std::cout << "sum(" << number << ", &result3) = " << result3 << std::endl;
+    return 0;
 }
