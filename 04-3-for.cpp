@@ -40,19 +40,19 @@ int main()
 
     // Количество правильных ответов
     int count = 0;
-    int number1, number2, result, answer;
 
     for (size_t i = 0; i < 10; ++i)
     {
         // число от 2 до 9
-        number1 = rand() % 7 + 2;
-        number2 = rand() % 7 + 2;
-        result = number1 * number2;
+        int number1 = rand() % 7 + 2;
+        int number2 = rand() % 7 + 2;
+        int result = number1 * number2;
+        int answer;
         std::cout << number1 << " x " << number2 << " = ";
         std::cin >> answer;
         if (answer == result)
         {
-            count++;
+            ++count;
             continue;
         }
         std::cout << "Вы ошиблись!"
