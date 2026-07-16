@@ -1,68 +1,43 @@
-/**
- * Л/р 5 Одномерные массивы
- *
- * В одномерном массиве хранится информация о результатах соревнования
- * по плаванию (время заплыва спортсменов в секундах).
- * Необходимо найти наилучшее время заплыва.
- * Ввод значений массива производится с клавиатуры.
- *
- * ПРИМЕР:
-```
-Укажите количество спортсменов: 5
-Введите время заплыва спортсменов (в секундах):
-5
-4.5
-20.4
-3
-4
-Лучшее время заплыва=3 с.
-```
-*/
-#include <iomanip>
 #include <iostream>
-#include <windows.h>
+
+using namespace std;
 
 int main()
 {
-    system("chcp 1251 > nul");
-    std::cout << std::fixed << std::setprecision(2);
+    size_t len;
 
-    size_t count;
-    std::cout << "Укажите количество спортсменов: ";
-    std::cin >> count;
-    if (count == 0) {
-        std::cerr << "Ошибка: количество должно быть больше нуля." << std::endl;
-        return 1;
-    }
+    cout << "Введите длину массива: ";
+    cin >> len;
 
-    // Указатель на динамический массив
-    double* array_s;
-    // динамическое выделение памяти динамического массива
-    array_s = new double[count];
+    int *a = new int[len];
+    int *b = new int[len];
+    int *res = new int[len];
 
-    std::cout << "Введите время заплыва спортсменов (в секундах):\n";
-    for (size_t i = 0; i < count; ++i)
+    cout << "Введите элементы массива a (через пробел): ";
+    for (size_t i = 0; i < len; i++)
     {
-        std::cin >> array_s[i];
-        if (array_s[i] <= 0.0)
-        {
-            std::cerr << "Ошибка: время должно быть больше нуля" << std::endl;
-            return 1;
-        }
+        cin >> a[i];
     }
 
-    int min_s = array_s[0];
-    for (size_t i = 1; i < count; ++i)
+    cout << "Введите элементы массива b (через пробел): ";
+    for (size_t i = 0; i < len; i++)
     {
-        if (array_s[i] < min_s)
-        {
-            min_s = array_s[i];
-        }
+        cin >> b[i];
     }
 
-    // освобождение памяти динамического массива
-    delete[] array_s;
+    for (size_t i = 0; i < len; i++)
+    {
+        res[i] = a[i] + b[i];
+    }
 
-    std::cout << "Лучшее время заплыва=" << min_s << " с." << std::endl;
-    return 0;
+    cout << "Массив res: ";
+    for (size_t i = 0; i < len; i++)
+    {
+        cout << res[i] << ' ';
+    }
+    cout << endl;
+
+    delete[] a;
+    delete[] b;
+    delete[] res;
 }

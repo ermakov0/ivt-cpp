@@ -2,8 +2,8 @@
 
 int main(void)
 {
-    for (int i = 0; i < 10; i++)
+    for (size_t i = 0; i < 10; i++)
     {
-        printf("%d ^ 2 = %d\n", i, i * i);
+        printf("%zu ^ 2 = %zu\n", i, i * i);
     }
 }
