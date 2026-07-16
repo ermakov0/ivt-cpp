@@ -1,93 +1,54 @@
-/**
- * Л/р 6 Двумерные массивы
- *
- * В двумерном массиве хранится информация о баллах, полученных
- * спортсменами-пятиборцами в каждом из пяти видов спорта.
- * Необходимо найти минимальное суммарное количество баллов, набранных спортсменом.
- *
- * ПРИМЕР:
-```
-Укажите количество спортсменов: 3
-Укажите баллы спортсменов-пятиборцев (5 в строке)
-1 2 3 4 5
-8 4 3 5 3
-1 2 3 3 2
-Исходные баллы спортсменов-пятиборцев:
-1       2       3       4       5       | 15
-8       4       3       5       3       | 23
-1       2       3       3       2       | 11
-Минимальное суммарное количество баллов=11
-```
-*/
 #include <iostream>
-#include <windows.h>
 
-const size_t MAX_SIZE = 50;
-const int MIN_BALL = 1;
-const int MAX_BALL = 10;
+using namespace std;
+
+const size_t MAX_SIZE = 10;
 
 int main()
 {
-    system("chcp 1251 > nul");
+    size_t rows, cols;
+    int m[MAX_SIZE][MAX_SIZE], b[MAX_SIZE], res[MAX_SIZE];
 
-    const size_t COLS = 5;
-    int array[MAX_SIZE][COLS];
+    cout << "Введите количество строк матрицы: ";
+    cin >> rows;
+    cout << "Введите количество столбцов матрицы: ";
+    cin >> cols;
 
-    size_t count;
-    std::cout << "Укажите количество спортсменов: ";
-    std::cin >> count;
-    if (count == 0 || count > MAX_SIZE)
+    if (rows > MAX_SIZE || cols > MAX_SIZE)
     {
-        std::cerr << "Ошибка: количество должно находиться в диапазоне [1; "
-            << MAX_SIZE << "]" << std::endl;
+        cerr << "Ошибка: ни одна из сторон матрицы не может быть больше " << MAX_SIZE << endl;
         return 1;
     }
 
-    std::cout << "Укажите баллы спортсменов-пятиборцев (" << COLS << " в строке)\n";
-    for (size_t i = 0; i < count; ++i)
+    cout << "Введите элементы матрицы m (построчно через пробел):" << endl;
+    for (size_t i = 0; i < rows; i++)
     {
-        for (size_t j = 0; j < COLS; ++j)
+        for (size_t j = 0; j < cols; j++)
         {
-            std::cin >> array[i][j];
-            if (array[i][j] < MIN_BALL || array[i][j] > MAX_BALL)
-            {
-                std::cerr << "Ошибка: балл должен быть в диапазоне ["
-                    << MIN_BALL << "; " << MAX_BALL << "]" << std::endl;
-                return 1;
-            }
+            cin >> m[i][j];
         }
     }
 
-    int* sums = new int[count];
-    for (size_t i = 0; i < count; ++i)
+    cout << "Введите элементы вектора b (через пробел):" << endl;
+    for (size_t j = 0; j < cols; j++)
     {
-        sums[i] = 0;
-        for (size_t j = 0; j < COLS; ++j)
+        cin >> b[j];
+    }
+
+    // res = m * b
+    for (size_t i = 0; i < rows; i++)
+    {
+        res[i] = 0;
+        for (size_t j = 0; j < cols; j++)
         {
-            sums[i] += array[i][j];
+            res[i] += m[i][j] * b[j];
         }
     }
 
-    std::cout << "Исходные баллы спортсменов-пятиборцев:\n";
-    for (size_t i = 0; i < count; ++i)
+    cout << "Вектор res:" << endl;
+    for (size_t i = 0; i < rows; i++)
     {
-        for (size_t j = 0; j < COLS; ++j)
-        {
-            std::cout << array[i][j] << '\t';
-        }
-        std::cout << "| " << sums[i] << '\n';
+        cout << res[i] << ' ';
     }
-
-    // поиск минимального суммарного количества баллов
-    int min = sums[0];
-    for (size_t i = 1; i < count; ++i)
-    {
-        if (sums[i] < min) {
-            min = sums[i];
-        }
-    }
-    delete[] sums;
-
-    std::cout << "Минимальное суммарное количество баллов=" << min << std::endl;
-    return 0;
+    cout << endl;
 }

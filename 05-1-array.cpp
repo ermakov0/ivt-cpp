@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const size_t MAX_SIZE = 50;
+const size_t MAX_SIZE = 10;
 
 int main()
 {
@@ -30,6 +30,7 @@ int main()
         cin >> b[i];
     }
 
+    // res = a + b
     for (size_t i = 0; i < len; i++)
     {
         res[i] = a[i] + b[i];
