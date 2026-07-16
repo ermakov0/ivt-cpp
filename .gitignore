@@ -1,9 +1,2 @@
-*.aux
-*.log
-*.nav
-*.snm
-*.toc
-*.vrb
+*.o
 *.out
-docs/images-gen/*.png
-*.pdf
