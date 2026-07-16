@@ -4,11 +4,11 @@
 
 using namespace std;
 
-const double PI = 3.14159265358979323846;
+const float PI = 3.14f;
 
 int main()
 {
-    double r, s;
+    float r, s;
 
     cout << "Введите радиус круга r (см): ";
     cin >> r;
