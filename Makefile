@@ -1,7 +1,7 @@
 CC = gcc
 CXX = g++
-CFLAGS = -Wall -Wextra -Wpedantic -Wconversion -std=c11 -O2
-CXXFLAGS = -Wall -Wextra -Wpedantic -Wconversion -std=c++98 -O2
+CFLAGS = -Wall -Wextra -Wpedantic -Wconversion -std=c11 -O2 -lm 
+CXXFLAGS = -Wall -Wextra -Wpedantic -Wconversion -std=c++98 -O2 -lm
 
 SOURCES_С = $(wildcard *.c)
 SOURCES_CXX = $(wildcard *.cpp)

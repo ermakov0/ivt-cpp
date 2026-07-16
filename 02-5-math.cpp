@@ -13,7 +13,7 @@ int main()
     cout << "Введите радиус круга r (см): ";
     cin >> r;
 
-    s = PI * pow(r, 2.0);
+    s = PI * pow(r, 2.0f);
 
     cout << fixed << setprecision(2);
     cout << "Площадь S=" << s << " см2" << endl;
