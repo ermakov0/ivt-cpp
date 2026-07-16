@@ -1,2 +1,4 @@
 *.o
 *.out
+docs/cpp-*.md
+docs/cpp-*.html
