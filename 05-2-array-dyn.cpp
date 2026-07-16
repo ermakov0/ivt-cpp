@@ -25,6 +25,7 @@ int main()
         cin >> b[i];
     }
 
+    // res = a + b
     for (size_t i = 0; i < len; i++)
     {
         res[i] = a[i] + b[i];

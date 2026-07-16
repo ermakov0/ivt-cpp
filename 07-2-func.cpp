@@ -1,31 +1,56 @@
-#include <assert.h>
-#include "07-2-func.h"
+#include <iostream>
 
-// Определения функций
+using namespace std;
 
-int sum(int number)
+void array_read(int *arr, size_t len);
+void array_print(int *arr, size_t len);
+void array_sum(int *arr1, int *arr2, int *res, size_t len);
+
+int main()
 {
-    assert(number >= 0);
+    size_t len;
 
-    int result = 0;
-    while (number > 0)
+    cout << "Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ РјР°СЃСЃРёРІР°: ";
+    cin >> len;
+
+    int *a = new int[len];
+    int *b = new int[len];
+    int *res = new int[len];
+
+    cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° a (С‡РµСЂРµР· РїСЂРѕР±РµР»): ";
+    array_read(a, len);
+    cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° b (С‡РµСЂРµР· РїСЂРѕР±РµР»): ";
+    array_read(b, len);
+    array_sum(a, b, res, len);
+    cout << "РњР°СЃСЃРёРІ res: ";
+    array_print(res, len);
+
+    delete[] a;
+    delete[] b;
+    delete[] res;
+}
+
+void array_read(int *arr, size_t len)
+{
+    for (size_t i = 0; i < len; i++)
     {
-        result += number % 10;
-        number /= 10;
+        cin >> arr[i];
     }
-    return result;
 }
 
-void sum(int number, int& result/*out*/)
+void array_print(int *arr, size_t len)
 {
-    //assert(number >= 0);
-    // Вызов перегруженной функции, чтобы не дублировать код
-    result = sum(number);
+    for (size_t i = 0; i < len; i++)
+    {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
 }
 
-void sum(int number, int* result/*out*/)
+void array_sum(int *arr1, int *arr2, int *res, size_t len)
 {
-    //assert(number >= 0);
-    // Вызов перегруженной функции, чтобы не дублировать код
-    *result = sum(number);
+    for (size_t i = 0; i < len; i++)
+    {
+        res[i] = arr1[i] + arr2[i];
+    }
 }
