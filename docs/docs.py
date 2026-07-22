@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 import os
+import subprocess
 import random
 
 from jinja2 import Environment, FileSystemLoader
@@ -17,14 +19,7 @@ def code(filename):
 
 
 def main():
-    lll = (
-        '21',
-        '22',
-        '31',
-        '32',
-        '33',
-        '34',
-    )
+    lll = ('21', '22', '31', '32', '33', '34', '41', '42', '51', '52')
 
     variants = {}
     for i in lll:
@@ -46,6 +41,7 @@ def main():
         context[f'lab{i}'] = variants[f'lab{i}'][variant].strip()
 
     open(f'cpp-{variant + 1}.md', 'w').write(template.render(context))
+    subprocess.run(f'pandoc cpp-{variant + 1}.md -o cpp-{variant + 1}.html --standalone --toc --mathml', shell=True)
 
 
 if __name__ == '__main__':

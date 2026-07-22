@@ -4,9 +4,11 @@ using namespace std;
 
 int main()
 {
-    // ошибка: expected «;» before «int»
-    cout << "Hello World!" << endl
     // предупреждение: неиспользуемая переменная var [-Wunused-variable]
     int var;
+
+    // ошибка: expected «;» before «return»
+    cout << "Hello World!" << endl
+
     return 0;
 }
