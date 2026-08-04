@@ -1,0 +1,22 @@
+@startuml 05-1-array
+start
+- Ввод длины массива len
+if (len > 10?) then
+else (да)
+    - Вывод "Ошибка: длина не может быть больше 10"
+    stop
+endif
+while (i = 0; i < len; i++)
+    - Ввод элемента массива a[i]
+endwhile
+while (i = 0; i < len; i++)
+    - Ввод элемента массива b[i]
+endwhile
+while (i = 0; i < len; i++)
+    - res[i] = a[i] + b[i]
+endwhile
+while (i = 0; i < len; i++)
+    - Ввод элемента массива res[i]
+endwhile
+stop
+@enduml

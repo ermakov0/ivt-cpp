@@ -1,0 +1,25 @@
+@startuml 05-example2
+start
+- j = 0
+- Ввод длины массива a (len)
+if (len > 10?) then
+else (да)
+    - Вывод "Ошибка: длина не может быть больше 10"
+    stop
+endif
+while (i = 0; i < len; i++)
+    - Ввод элемента массива a[i]
+endwhile
+while (i = 0; i < len - 1; i++)
+    if (a[i] > 0) then
+    else (да)
+    - b[j] = a[i]
+    - j++
+    endif
+endwhile
+- Вывод длины массива b (j)
+while (i = 0; i < j; i++)
+    - Ввод элемента массива b[i]
+endwhile
+stop
+@enduml

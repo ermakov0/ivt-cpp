@@ -1,0 +1,19 @@
+@startuml 05-2-array-dyn
+start
+- Ввод длины массива len
+- Выделить память под массивы a, b, res
+while (i = 0; i < len; i++)
+    - Ввод элемента массива a[i]
+endwhile
+while (i = 0; i < len; i++)
+    - Ввод элемента массива b[i]
+endwhile
+while (i = 0; i < len; i++)
+    - res[i] = a[i] + b[i]
+endwhile
+while (i = 0; i < len; i++)
+    - Ввод элемента массива res[i]
+endwhile
+- Освободить память массивов a, b, res
+stop
+@enduml

@@ -295,26 +295,33 @@ $$
 
 ### Примеры исходного кода
 
+{{ puml('05-1-array') }}
 {{ code('05-1-array.cpp') }}
+
+{{ puml('05-2-array-dyn') }}
 {{ code('05-2-array-dyn.cpp') }}
 
 ### Примеры решения заданий
 
 **Индивидуальное задание 1:**
 
-TODO
+{{ puml('05-example1') }}
+{{ code('05-example1.cpp') }}
 
 **Индивидуальное задание 2:**
 
-TODO
+{{ puml('05-example2') }}
+{{ code('05-example2.cpp') }}
 
 **Индивидуальное задание 3:**
 
-TODO
+{{ puml('05-example3') }}
+{{ code('05-example3.cpp') }}
 
 **Индивидуальное задание 4:**
 
-TODO
+{{ puml('05-example4') }}
+{{ code('05-example4.cpp') }}
 
 <!--  -->
 <!--  -->

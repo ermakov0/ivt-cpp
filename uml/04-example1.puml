@@ -3,7 +3,7 @@ start
 - i = 0
 - res = -1
 - Ввод n
-while (i < n?) is (да)
+while (i < n?)
     - Ввод числа последовательности
     if (res = -1 и число чётное?) then
     else (да)

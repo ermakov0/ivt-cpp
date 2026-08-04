@@ -1,0 +1,22 @@
+@startuml 05-example1
+start
+- Ввод длины массива len
+if (len > 10?) then
+else (да)
+    - Вывод "Ошибка: длина не может быть больше 10"
+    stop
+endif
+while (i = 0; i < len; i++)
+    - Ввод элемента массива a[i]
+endwhile
+while (i = 0; i < len; i++)
+    - res[i] = a[i] + b[i]
+endwhile
+while (i = 0; i < len - 1; i++)
+    if (a[i] > 0 и a[i + 1] > 0?) then
+    else (да)
+        - Вывод "a[i] и a[i + 1]"
+    endif
+endwhile
+stop
+@enduml
