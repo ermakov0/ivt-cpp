@@ -1,0 +1,9 @@
+@startuml 04-2-do-while
+start
+- счётчик = 0
+repeat
+    - Вывод "счётчик ^ 2"
+    - счётчик + 1
+repeat while (счётчик < 10?) is (да)
+stop
+@enduml

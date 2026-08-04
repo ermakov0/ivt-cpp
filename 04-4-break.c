@@ -1,18 +1,24 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main(void)
 {
-    int tmp, sum = 0;
+    int sum = 0;
 
     printf("Введите последовательность чисел (признак окончания - 0): ");
-    do
+    while (true)
     {
+        int tmp;
         scanf("%d", &tmp);
+        if (tmp == 0)
+        {
+            break;
+        }
         if (tmp % 2 != 0)
         {
             sum += tmp;
         }
-    } while (tmp != 0);
+    }
 
     printf("Сумма нечётных чисел: %d\n", sum);
 }

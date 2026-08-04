@@ -1,0 +1,7 @@
+@startuml 04-3-for
+start
+while (счётчик = 0; счётчик < 10; счётчик + 1) is (да)
+    - Вывод "счётчик ^ 2"
+endwhile
+stop
+@enduml

@@ -42,17 +42,17 @@ docs/cpp-1.md: docs/template.md
 	cd docs && ./docs.py
 
 01-1-hello.out: 01-1-hello.c
-	echo -n
+	exit 0
 01-2-hello.out: 01-2-hello.cpp
-	echo -n
+	exit 0
 01-3-warnings.out: 01-3-warnings.cpp
-	echo -n
+	exit 0
 01-1-hello.test: 01-1-hello.c
-	echo -n
+	exit 0
 01-2-hello.test: 01-2-hello.cpp
-	echo -n
+	exit 0
 01-3-warnings.test: 01-3-warnings.cpp
-	echo -n
+	exit 0
 
 clean:
 	rm -f *.o *.out docs/cpp-*.md docs/cpp-*.html uml/*.svg

@@ -1,0 +1,16 @@
+@startuml 04-4-break
+start
+- sum = 0
+while (true)
+    - Ввод числа последовательности
+    if (число = 0?) then (да)
+        break
+    endif
+    if (число нечётное?) then
+    else (да)
+        - sum + число
+    endif
+endwhile
+- Вывод "Сумма нечётных чисел sum"
+stop
+@enduml
