@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main(void)
+{
+    size_t n, i = 0;
+    int res = -1;
+
+    printf("Введите n: ");
+    scanf("%zu", &n);
+
+    printf("Введите последовательность чисел (через пробел): ");
+    while (i < n)
+    {
+        int tmp;
+        scanf("%d", &tmp);
+        if (res == -1 && tmp % 2 == 0)
+        {
+            res = tmp;
+        }
+        i++;
+    }
+
+    if (res != -1)
+    {
+        printf("Первое чётное число в последовательности: %d\n", res);
+    }
+    else
+    {
+        printf("В последовательности не было чётных чисел\n");
+    }
+}

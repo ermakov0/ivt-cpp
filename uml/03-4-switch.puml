@@ -1,0 +1,18 @@
+@startuml 03-4-switch
+start
+- Ввод оценки
+switch (оценка)
+case (2)
+    - Вывод "Двойка"
+case (3) 
+    - Вывод "Тройка"
+case (4)
+    - Вывод "Четвёрка"
+case (5)
+    - Вывод "Пятёрка"
+case (другое)
+    - Вывод "Ошибка ввода"
+    stop
+endswitch
+stop
+@enduml

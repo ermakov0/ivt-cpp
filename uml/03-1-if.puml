@@ -1,0 +1,9 @@
+@startuml 03-1-if
+start
+- Ввод числа a
+if (a > 10?) then
+else (да)
+    - Вывод "Число больше 10"
+endif
+stop
+@enduml

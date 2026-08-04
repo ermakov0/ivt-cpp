@@ -1,0 +1,7 @@
+@startuml 02-2-sum
+start
+- Ввод чисел a и b
+- sum = a + b
+- Вывод sum
+stop
+@enduml

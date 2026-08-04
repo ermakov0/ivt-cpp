@@ -2,3 +2,4 @@
 *.out
 docs/cpp-*.md
 docs/cpp-*.html
+uml/*svg

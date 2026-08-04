@@ -1,0 +1,18 @@
+@startuml 03-3-if-elseif
+!pragma useVerticalIf on
+start
+- Ввод оценки
+if (2?) then (да)
+    - Вывод "Двойка"
+elseif (3?) then (да)
+    - Вывод "Тройка"
+elseif (4?) then (да)
+    - Вывод "Четвёрка"
+elseif (5?) then (да)
+    - Вывод "Пятёрка"
+else
+    - Вывод "Ошибка ввода"
+    stop
+endif
+stop
+@enduml

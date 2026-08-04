@@ -1,0 +1,9 @@
+@startuml 03-example2
+start
+- Ввод трёх чисел a, b, c
+if (a <= b <= c?) then (да)
+    - Увеличить a, b, c вдвое
+endif
+- Вывод a, b, c
+stop
+@enduml

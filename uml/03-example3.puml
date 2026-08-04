@@ -1,0 +1,14 @@
+@startuml 03-example3
+' !pragma useVerticalIf on
+start
+- Ввод x
+if (x < 0?) then (да)
+    - y = 42
+elseif (x <= 7?) then (да)
+    - y = 43 + x
+else
+    - y = 44 - x
+endif
+- Вывод y
+stop
+@enduml

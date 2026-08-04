@@ -1,0 +1,5 @@
+@startuml 01-2-hello
+start
+- Вывод "Hello, World!"
+stop
+@enduml

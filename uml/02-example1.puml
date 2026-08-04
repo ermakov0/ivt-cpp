@@ -1,0 +1,7 @@
+@startuml 02-example1
+start
+- Ввод x
+- y = 5x^5 + x^4 - 2x^3 + 43
+- Вывод y
+stop
+@enduml

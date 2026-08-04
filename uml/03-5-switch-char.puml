@@ -1,0 +1,21 @@
+@startuml 03-5-switch-char
+start
+- Ввод чисел a, b и оператора
+switch (оператор)
+case (+)
+    - a + b
+case (-) 
+    - a - b
+case (*)
+    - a * b
+case (/)
+    - a / b
+case (^)
+    - a ^ b
+case (другое)
+    - Вывод "Ошибка ввода"
+    stop
+endswitch
+    - Вывод результата вычислений
+stop
+@enduml
