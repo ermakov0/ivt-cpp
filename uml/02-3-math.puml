@@ -1,0 +1,7 @@
+@startuml 02-3-math
+start
+- Ввод радиуса R
+- S = PI * R ^ 2
+- Вывод площади S
+stop
+@enduml
