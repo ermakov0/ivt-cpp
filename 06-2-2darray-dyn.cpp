@@ -55,6 +55,7 @@ int main()
     {
         delete[] m[i];
     }
+    delete[] m;
     delete[] b;
     delete[] res;
 }

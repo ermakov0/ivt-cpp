@@ -45,6 +45,14 @@ def main():
     env.globals['code'] = code
     env.globals['puml'] = puml
 
+    template = env.get_template('template-cheatsheet.md')
+    context = {}
+    for i in lll:
+        context[f'lab{i}'] = variants[f'lab{i}']
+    open(f'cheatsheet.md', 'w').write(template.render(context))
+
+    ###
+
     template = env.get_template('template.md')
 
     variant = 0

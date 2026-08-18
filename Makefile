@@ -31,9 +31,9 @@ svg: $(TARGETS_UML)
 
 # https://plantuml.com/ru/activity-diagram-beta
 %.svg: %.puml
-	java -jar ${HOME}/.local/bin/plantuml-1.2026.6.jar -tsvg $<
+	java -jar ${HOME}/.local/bin/plantuml-1.2026.6.jar -tsvg -nometadata $<
 
-html: docs/cpp-1.html
+html: docs/cheatsheet.html docs/cpp-1.html
 
 %.html: %.md
 	pandoc $< -o $@ --standalone --toc --mathml
@@ -55,4 +55,7 @@ docs/cpp-1.md: docs/template.md
 	exit 0
 
 clean:
-	rm -f *.o *.out docs/cpp-*.md docs/cpp-*.html uml/*.svg
+	rm -f *.o *.out
+	rm -f uml/*.svg
+	rm -f docs/cheatsheet.md docs/cheatsheet.html
+	rm -f docs/cpp-*.md docs/cpp-*.html

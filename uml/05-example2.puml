@@ -19,7 +19,7 @@ while (i = 0; i < len - 1; i++)
 endwhile
 - Вывод длины массива b (j)
 while (i = 0; i < j; i++)
-    - Ввод элемента массива b[i]
+    - Вывод элемента массива b[i]
 endwhile
 stop
 @enduml

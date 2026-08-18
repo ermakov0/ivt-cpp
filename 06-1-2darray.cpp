@@ -2,11 +2,10 @@
 
 using namespace std;
 
-const size_t MAX_SIZE = 10;
-
 int main()
 {
     size_t rows, cols;
+    const size_t MAX_SIZE = 10;
     int m[MAX_SIZE][MAX_SIZE], b[MAX_SIZE], res[MAX_SIZE];
 
     cout << "Введите количество строк матрицы: ";

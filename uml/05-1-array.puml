@@ -16,7 +16,7 @@ while (i = 0; i < len; i++)
     - res[i] = a[i] + b[i]
 endwhile
 while (i = 0; i < len; i++)
-    - Ввод элемента массива res[i]
+    - Вывод элемента массива res[i]
 endwhile
 stop
 @enduml
