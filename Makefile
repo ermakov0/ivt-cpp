@@ -41,6 +41,9 @@ html: docs/cheatsheet.html docs/cpp-1.html
 docs/cpp-1.md: docs/template.md
 	cd docs && ./docs.py
 
+docs/cheatsheet.md: docs/template.md
+	cd docs && ./docs.py
+
 01-1-hello.out: 01-1-hello.c
 	exit 0
 01-2-hello.out: 01-2-hello.cpp
