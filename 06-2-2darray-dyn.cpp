@@ -11,20 +11,20 @@ int main()
     cout << "Введите количество столбцов матрицы: ";
     cin >> cols;
 
-    int **m = new int *[rows];
+    int **arr = new int *[rows];
     for (size_t i = 0; i < rows; i++)
     {
-        m[i] = new int[cols];
+        arr[i] = new int[cols];
     }
     int *b = new int[cols];
     int *res = new int[rows];
 
-    cout << "Введите элементы матрицы m (построчно через пробел):" << endl;
+    cout << "Введите элементы матрицы arr (построчно через пробел):" << endl;
     for (size_t i = 0; i < rows; i++)
     {
         for (size_t j = 0; j < cols; j++)
         {
-            cin >> m[i][j];
+            cin >> arr[i][j];
         }
     }
 
@@ -34,13 +34,13 @@ int main()
         cin >> b[j];
     }
 
-    // res = m * b
+    // res = arr * b
     for (size_t i = 0; i < rows; i++)
     {
         res[i] = 0;
         for (size_t j = 0; j < cols; j++)
         {
-            res[i] += m[i][j] * b[j];
+            res[i] += arr[i][j] * b[j];
         }
     }
 
@@ -53,9 +53,9 @@ int main()
 
     for (size_t i = 0; i < rows; i++)
     {
-        delete[] m[i];
+        delete[] arr[i];
     }
-    delete[] m;
+    delete[] arr;
     delete[] b;
     delete[] res;
 }

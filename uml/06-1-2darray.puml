@@ -9,7 +9,7 @@ endif
 
 while (i = 0; i < rows; i++)
     while (j = 0; j < cols; j++)
-        - Ввод элемента матрицы m[i][j]
+        - Ввод элемента матрицы arr[i][j]
     endwhile
 endwhile
 while (i = 0; i < cols; i++)
@@ -19,7 +19,7 @@ endwhile
 while (i = 0; i < rows; i++)
     - res[i] = 0
     while (j = 0; j < cols; j++)
-        - res[i] += m[i][j] * b[j];
+        - res[i] += arr[i][j] * b[j];
     endwhile
 endwhile
 

@@ -6,7 +6,7 @@ int main()
 {
     size_t rows, cols;
     const size_t MAX_SIZE = 10;
-    int m[MAX_SIZE][MAX_SIZE], b[MAX_SIZE], res[MAX_SIZE];
+    int arr[MAX_SIZE][MAX_SIZE], b[MAX_SIZE], res[MAX_SIZE];
 
     cout << "Введите количество строк матрицы: ";
     cin >> rows;
@@ -19,12 +19,12 @@ int main()
         return 1;
     }
 
-    cout << "Введите элементы матрицы m (построчно через пробел):" << endl;
+    cout << "Введите элементы матрицы arr (построчно через пробел):" << endl;
     for (size_t i = 0; i < rows; i++)
     {
         for (size_t j = 0; j < cols; j++)
         {
-            cin >> m[i][j];
+            cin >> arr[i][j];
         }
     }
 
@@ -34,13 +34,13 @@ int main()
         cin >> b[j];
     }
 
-    // res = m * b
+    // res = arr * b
     for (size_t i = 0; i < rows; i++)
     {
         res[i] = 0;
         for (size_t j = 0; j < cols; j++)
         {
-            res[i] += m[i][j] * b[j];
+            res[i] += arr[i][j] * b[j];
         }
     }
 
