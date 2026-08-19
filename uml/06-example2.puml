@@ -1,0 +1,42 @@
+@startuml 06-example2
+start
+- Ввод количества строк (n)
+- Ввод количества столбцов (m)
+if (n > MAX_SIZE или m > MAX_SIZE?) then
+else (да)
+    stop
+endif
+
+while (i = 0; i < n; i++)
+    while (j = 0; j < m; j++)
+        - Ввод элемента матрицы arr1[i][j]
+    endwhile
+endwhile
+while (i = 0; i < n; i++)
+    while (j = 0; j < m; j++)
+        - Ввод элемента матрицы arr2[i][j]
+    endwhile
+endwhile
+
+- BEG = m // 3
+- END = (m // 3) * 2
+
+while (j = 0; j < m; j++)
+    if (BEG <= j < END?) then
+        while (i = 0; i < n; i++)
+            - res[i][j] = arr2[i][j]
+        endwhile
+    else (да)
+        while (i = 0; i < n; i++)
+            - res[i][j] = arr1[i][j]
+        endwhile
+    endif
+endwhile
+
+while (i = 0; i < n; i++)
+    while (j = 0; j < m; j++)
+        - Вывод элемента матрицы arr[i][j]
+    endwhile
+endwhile
+stop
+@enduml
