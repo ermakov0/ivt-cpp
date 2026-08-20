@@ -1,32 +1,38 @@
 @startuml 06-example3
 start
-- Ввод количества строк (n)
-- Ввод количества столбцов (m)
-
-- Выделить память под указатели на строки матрицы arr
-while (i = 0; i < n; i++)
-    - Выделить память под элементы строки матрицы arr[i]
-endwhile
-
-while (i = 0; i < n; i++)
-    while (j = 0; j < m; j++)
-        if (i < j?) then
-            - arr[i][j] = j
-        else (да)
-            - arr[i][j] = i
-        endif
+partition #lightGreen "ввод" {
+    - Ввод количества строк (n)
+    - Ввод количества столбцов (m)
+}
+partition #lightPink "управление памятью" {
+    - Выделить память под указатели на строки матрицы arr
+    while (i = 0; i < n; i++)
+        - Выделить память под элементы строки матрицы arr[i]
     endwhile
-endwhile
-
-while (i = 0; i < n; i++)
-    while (j = 0; j < m; j++)
-        - Вывод элемента матрицы arr[i][j]
+}
+partition #lightGray "вычисления" {
+    while (i = 0; i < n; i++)
+        while (j = 0; j < m; j++)
+            if (i < j?) then
+                - arr[i][j] = j
+            else (да)
+                - arr[i][j] = i
+            endif
+        endwhile
     endwhile
-endwhile
-
-while (i = 0; i < n; i++)
-    - Освободить память вектора элементов строки матрицы arr[i]
-endwhile
-- Освободить память вектора указателей на строки матрицы arr
+}
+partition #lightGreen "вывод" {
+    while (i = 0; i < n; i++)
+        while (j = 0; j < m; j++)
+            - Вывод элемента матрицы arr[i][j]
+        endwhile
+    endwhile
+}
+partition #lightPink "управление памятью" {
+    while (i = 0; i < n; i++)
+        - Освободить память вектора элементов строки матрицы arr[i]
+    endwhile
+    - Освободить память вектора указателей на строки матрицы arr
+}
 stop
 @enduml

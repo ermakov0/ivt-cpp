@@ -1,30 +1,46 @@
 @startuml 05-example4
 start
-- Ввод длины массива a (len)
-- Выделить память под массив a
-while (i = 0; i < len; i++)
-    - Ввод элемента массива a[i]
-endwhile
-- j = 0
-while (i = 0; i < len - 1; i++)
-    if (a[i] > 0) then
-    else (да)
-    - j++
-    endif
-endwhile
-- Выделить память под массив b (j)
-- j = 0
-while (i = 0; i < len - 1; i++)
-    if (a[i] > 0) then
-    else (да)
-    - b[j] = a[i]
-    - j++
-    endif
-endwhile
-- Вывод длины массива b (j)
-while (i = 0; i < j; i++)
-    - Вывод элемента массива b[i]
-endwhile
-- Освободить память массивов a, b
+partition #lightGreen "ввод" {
+    - Ввод длины массива a (len)
+}
+partition #lightPink "управление памятью" {
+    - Выделить память под массив a
+}
+partition #lightGreen "ввод" {
+    while (i = 0; i < len; i++)
+        - Ввод элемента массива a[i]
+    endwhile
+}
+partition #lightGray "вычисления" {
+    - j = 0
+    while (i = 0; i < len - 1; i++)
+        if (a[i] > 0) then
+        else (да)
+        - j++
+        endif
+    endwhile
+}
+partition #lightPink "управление памятью" {
+    - Выделить память под массив b (j)
+}
+partition #lightGray "вычисления" {
+    - j = 0
+    while (i = 0; i < len - 1; i++)
+        if (a[i] > 0) then
+        else (да)
+        - b[j] = a[i]
+        - j++
+        endif
+    endwhile
+}
+partition #lightGreen "вывод" {
+    - Вывод длины массива b (j)
+    while (i = 0; i < j; i++)
+        - Вывод элемента массива b[i]
+    endwhile
+}
+partition #lightPink "управление памятью" {
+    - Освободить память массивов a, b
+}
 stop
 @enduml

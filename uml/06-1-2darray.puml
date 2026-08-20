@@ -1,30 +1,34 @@
 @startuml 06-1-2darray
 start
-- Ввод количества строк (rows)
-- Ввод количества столбцов (cols)
-if (rows > MAX_SIZE или cols > MAX_SIZE?) then
-else (да)
-    stop
-endif
+partition #lightGreen "ввод" {
+    - Ввод количества строк (rows)
+    - Ввод количества столбцов (cols)
+    if (rows > MAX_SIZE или cols > MAX_SIZE?) then
+    else (да)
+        stop
+    endif
 
-while (i = 0; i < rows; i++)
-    while (j = 0; j < cols; j++)
-        - Ввод элемента матрицы arr[i][j]
+    while (i = 0; i < rows; i++)
+        while (j = 0; j < cols; j++)
+            - Ввод элемента матрицы arr[i][j]
+        endwhile
     endwhile
-endwhile
-while (i = 0; i < cols; i++)
-    - Ввод элемента вектора b[i]
-endwhile
-
-while (i = 0; i < rows; i++)
-    - res[i] = 0
-    while (j = 0; j < cols; j++)
-        - res[i] += arr[i][j] * b[j];
+    while (i = 0; i < cols; i++)
+        - Ввод элемента вектора b[i]
     endwhile
-endwhile
-
-while (i = 0; i < rows; i++)
-    - Вывод элемента вектора res[i]
-endwhile
+}
+partition #lightGray "вычисления" {
+    while (i = 0; i < rows; i++)
+        - res[i] = 0
+        while (j = 0; j < cols; j++)
+            - res[i] += arr[i][j] * b[j];
+        endwhile
+    endwhile
+}
+partition #lightGreen "вывод" {
+    while (i = 0; i < rows; i++)
+        - Вывод элемента вектора res[i]
+    endwhile
+}
 stop
 @enduml

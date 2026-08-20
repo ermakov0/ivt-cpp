@@ -1,38 +1,46 @@
 @startuml 06-2-2darray-dyn
 start
-- Ввод количества строк (rows)
-- Ввод количества столбцов (cols)
-
-- Выделить память под указатели на строки матрицы arr
-while (i = 0; i < rows; i++)
-    - Выделить память под элементы строки матрицы arr[i]
-endwhile
-- Выделить память под вектора b, res
-
-while (i = 0; i < rows; i++)
-    while (j = 0; j < cols; j++)
-        - Ввод элемента матрицы arr[i][j]
+partition #lightGreen "ввод" {
+    - Ввод количества строк (rows)
+    - Ввод количества столбцов (cols)
+}
+partition #lightPink "управление памятью" {
+    - Выделить память под указатели на строки матрицы arr
+    while (i = 0; i < rows; i++)
+        - Выделить память под элементы строки матрицы arr[i]
     endwhile
-endwhile
-while (i = 0; i < cols; i++)
-    - Ввод элемента вектора b[i]
-endwhile
+    - Выделить память под вектора b, res
+}
 
-while (i = 0; i < rows; i++)
-    - res[i] = 0
-    while (j = 0; j < cols; j++)
-        - res[i] += arr[i][j] * b[j];
+partition #lightGreen "ввод" {
+    while (i = 0; i < rows; i++)
+        while (j = 0; j < cols; j++)
+            - Ввод элемента матрицы arr[i][j]
+        endwhile
     endwhile
-endwhile
-
-while (i = 0; i < rows; i++)
-    - Вывод элемента вектора res[i]
-endwhile
-
-while (i = 0; i < rows; i++)
-    - Освободить память вектора элементов строки матрицы arr[i]
-endwhile
-- Освободить память вектора указателей на строки матрицы arr
-- Освободить память векторов b, res
+    while (i = 0; i < cols; i++)
+        - Ввод элемента вектора b[i]
+    endwhile
+}
+partition #lightGray "вычисления" {
+    while (i = 0; i < rows; i++)
+        - res[i] = 0
+        while (j = 0; j < cols; j++)
+            - res[i] += arr[i][j] * b[j];
+        endwhile
+    endwhile
+}
+partition #lightGreen "вывод" {
+    while (i = 0; i < rows; i++)
+        - Вывод элемента вектора res[i]
+    endwhile
+}
+partition #lightPink "управление памятью" {
+    while (i = 0; i < rows; i++)
+        - Освободить память вектора элементов строки матрицы arr[i]
+    endwhile
+    - Освободить память вектора указателей на строки матрицы arr
+    - Освободить память векторов b, res
+}
 stop
 @enduml

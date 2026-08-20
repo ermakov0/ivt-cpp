@@ -1,20 +1,26 @@
 @startuml 03-example1
 start
-- счётчик = 0
-- Ввод трёх чисел a, b, c
-if (a = 0?) then (да)
-    - счётчик + 1
-endif
-if (b = 0?) then (да)
-    - счётчик + 1
-endif
-if (c = 0?) then (да)
-    - счётчик + 1
-endif
-if (счётчик = 2?) then (да)
-    - Вывод TRUE
-else
-    - Вывод FALSE
-endif
+partition #lightGreen "ввод" {
+    - Ввод трёх чисел a, b, c
+}
+partition #lightGray "вычисления" {
+    - счётчик = 0
+    if (a = 0?) then (да)
+        - счётчик + 1
+    endif
+    if (b = 0?) then (да)
+        - счётчик + 1
+    endif
+    if (c = 0?) then (да)
+        - счётчик + 1
+    endif
+}
+partition #lightGreen "вывод" {
+    if (счётчик = 2?) then (да)
+        - Вывод TRUE
+    else
+        - Вывод FALSE
+    endif
+}
 stop
 @enduml

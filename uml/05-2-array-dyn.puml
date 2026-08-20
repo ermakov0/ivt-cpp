@@ -1,19 +1,31 @@
 @startuml 05-2-array-dyn
 start
-- Ввод длины массива len
-- Выделить память под массивы a, b, res
-while (i = 0; i < len; i++)
-    - Ввод элемента массива a[i]
-endwhile
-while (i = 0; i < len; i++)
-    - Ввод элемента массива b[i]
-endwhile
-while (i = 0; i < len; i++)
-    - res[i] = a[i] + b[i]
-endwhile
-while (i = 0; i < len; i++)
-    - Вывод элемента массива res[i]
-endwhile
-- Освободить память массивов a, b, res
+partition #lightGreen "ввод" {
+    - Ввод длины массива len
+}
+partition #lightPink "управление памятью" {
+    - Выделить память под массивы a, b, res
+}
+partition #lightGreen "ввод" {
+    while (i = 0; i < len; i++)
+        - Ввод элемента массива a[i]
+    endwhile
+    while (i = 0; i < len; i++)
+        - Ввод элемента массива b[i]
+    endwhile
+}
+partition #lightGray "вычисления" {
+    while (i = 0; i < len; i++)
+        - res[i] = a[i] + b[i]
+    endwhile
+}
+partition #lightGreen "вывод" {
+    while (i = 0; i < len; i++)
+        - Вывод элемента массива res[i]
+    endwhile
+}
+partition #lightPink "управление памятью" {
+    - Освободить память массивов a, b, res
+}
 stop
 @enduml

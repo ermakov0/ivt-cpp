@@ -48,7 +48,6 @@ int main()
     {
         if (j >= BEG && j < END)
         {
-
             for (size_t i = 0; i < n; i++)
             {
                 res[i][j] = arr1[i][j];

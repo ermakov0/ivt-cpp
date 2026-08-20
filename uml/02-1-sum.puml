@@ -1,7 +1,13 @@
 @startuml 02-1-sum
 start
+' partition "ввод" {
 - Ввод чисел a и b
+' }
+' partition #lightGray "вычисления" {
 - sum = a + b
+' }
+' partition "вывод" {
 - Вывод sum
+' }
 stop
 @enduml

@@ -1,0 +1,33 @@
+@startuml 07-1-func
+package "int main()" {
+    start
+    ' note right: int main()
+    partition #lightGreen "ввод" {
+        - Ввод чисел (n1, n2)
+    }
+    partition #lightGray "вычисления" {
+        - sum(n1)
+        - sum(n2)
+    }
+    partition #lightGreen "вывод" {
+        - Вывод результата
+    }
+    stop
+}
+package #lightGray "int sum(int n)" {
+    start
+    ' note right: int sum(int n)
+    if (n < 0?) then
+    else (да)
+        - вернуть -1
+        stop
+    endif
+    - res = 0
+    while (n > 0?)
+        - res = res + n % 10
+        - n = n // 10
+    endwhile
+    - вернуть res
+    stop
+}
+@enduml
