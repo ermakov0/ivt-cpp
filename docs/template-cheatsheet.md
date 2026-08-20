@@ -150,4 +150,14 @@ $$
 
 {% for i in lab82 %}{{ loop.index }}. {{ i }}{% endfor %}
 
+## Лабораторная работа 9: Структуры и перечисления
+
+### Индивидуальное задание 1
+
+{% for i in lab91 %}{{ loop.index }}. {{ i }}{% endfor %}
+
+### Индивидуальное задание 2
+
+{% for i in lab92 %}{{ loop.index }}. {{ i }}{% endfor %}
+
 TODO
