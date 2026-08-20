@@ -1,41 +1,20 @@
-/**
- * Л/р 8 Символы и строки
- *
- * ПРИМЕР:
-```
-Сколько тебе лет? 18
-Как тебя зовут? Иван
-Привет, Иван! тебе 18 лет.
-Привет, Иван! тебе 18 лет.
-```
-*/
-
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <windows.h>
+
+using namespace std;
 
 int main()
 {
-    system("chcp 1251 > nul");
+    string str;
 
-    int age;
-    std::string name;
+    cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ";
+    getline(cin, str);
 
-    std::cout << "Сколько тебе лет? ";
-    std::cin >> age;
-    std::cin.ignore();  // (!)
+    if (str.find('.') != string::npos)
+    {
+        cout << "Р’ СЃС‚СЂРѕРєРµ СЃРѕРґРµСЂР¶РёС‚СЃСЏ С‚РѕС‡РєР°" << endl;
+    }
 
-    std::cout << "Как тебя зовут? ";
-    std::getline(std::cin, name);
-
-    std::ostringstream os;
-    os << "Привет, " << name << "! тебе " << age << " лет.";
-    std::string result = os.str();
-    std::cout << result << std::endl;
-
-    // внезапная c-string
-    const char* result2 = result.c_str();
-    std::cout << result << std::endl;
-    return 0;
+    const char *cstr = str.c_str();
+    cout << "c-string: " << cstr << endl;
 }
