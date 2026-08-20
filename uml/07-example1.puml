@@ -1,0 +1,20 @@
+@startuml 07-example1
+package "int main()" {
+    start
+    partition #lightGreen "ввод" {
+        - Ввод чисел (a, b)
+    }
+    partition #lightGray "вычисления" {
+        - y = f(a, b)
+    }
+    partition #lightGreen "вывод" {
+        - Вывод результата (y)
+    }
+    stop
+}
+package #lightGray "int f(int a, int b)" {
+    start
+    - вернуть a ^ 2 + b ^ 2
+    stop
+}
+@enduml

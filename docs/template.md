@@ -430,18 +430,25 @@ $$
 
 **Индивидуальное задание 1:**
 
-TODO
+{{ puml('07-example1') }}
+{{ code('07-example1.cpp') }}
 
 **Индивидуальное задание 2:**
 
-TODO
+{{ puml('07-example2') }}
+{{ code('07-example2.cpp') }}
 
 **Индивидуальное задание 3:**
 
-TODO
+{{ puml('07-example3') }}
+{{ code('07-example3.cpp') }}
 
 **Индивидуальное задание 4:**
 
+{{ puml('07-example4') }}
 {{ code('07-example4.cpp') }}
 
+{{ puml('07-example5') }}
 {{ code('07-example5.cpp') }}
+
+TODO 8

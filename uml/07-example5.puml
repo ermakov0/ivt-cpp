@@ -1,0 +1,75 @@
+@startuml 07-example5
+
+package "int main()" {
+    start
+    partition #lightGreen "ввод" {
+        - Ввод количества строк (n)
+        - Ввод количества столбцов (m)
+    }
+    partition #lightGray "вычисления" {
+        - arr1 = array_new(n, m)
+        - arr2 = array_new(n, m)
+        - res = array_new(n, m)
+        - array_read(arr1, n, m)
+        - array_read(arr2, n, m)
+        - array_process(res, arr1, arr2, n, m)
+        - array_print(res, n, m)
+        - array_delete(arr1, n)
+        - array_delete(arr2, n)
+        - array_delete(res, n)
+    }
+    stop
+}
+package #lightPink "int **array_new(rows, cols)" {
+    start
+    - Выделить память под указатели на строки матрицы res
+    while (i = 0; i < rows; i++)
+        - Выделить память под элементы строки матрицы res[i]
+    endwhile
+    - вернуть res
+    stop
+}
+package #lightPink "void array_delete(arr, rows)" {
+    start
+    while (i = 0; i < rows; i++)
+        - Освободить память вектора элементов строки матрицы arr[i]
+    endwhile
+    - Освободить память вектора указателей на строки матрицы arr
+    stop
+}
+package #lightGreen "void array_read(arr, rows, cols)" {
+    start
+    while (i = 0; i < rows; i++)
+        while (j = 0; j < cols; j++)
+            - Ввод элемента матрицы arr[i][j]
+        endwhile
+    endwhile
+    stop
+}
+package #lightGreen "void array_print(arr, rows, cols)" {
+    start
+    while (i = 0; i < rows; i++)
+        while (j = 0; j < cols; j++)
+            - Вывод элемента матрицы arr[i][j]
+        endwhile
+    endwhile
+    stop
+}
+package #lightGray "void array_process(res, arr1, arr2, rows, cols)" {
+    start
+    - BEG = cols // 3
+    - END = (cols // 3) * 2
+    while (j = 0; j < cols; j++)
+        if (BEG <= j < END?) then
+            while (i = 0; i < rows; i++)
+                - res[i][j] = arr2[i][j]
+            endwhile
+        else (да)
+            while (i = 0; i < rows; i++)
+                - res[i][j] = arr1[i][j]
+            endwhile
+        endif
+    endwhile
+    stop
+}
+@enduml

@@ -1,0 +1,43 @@
+@startuml 07-example4
+package "int main()" {
+    start
+    partition #lightGreen "ввод" {
+        - Ввод длины массива len
+    }
+    partition #lightPink "управление памятью" {
+        - Выделить память под массивы a, b, res
+    }
+    partition #lightGray "вычисления" {
+        - array_read(a, len)
+        - array_read(b, len)
+        - array_sum(a, b, len)
+        - array_print(res, len)
+    }
+    partition #lightPink "управление памятью" {
+        - Освободить память массивов a, b, res
+    }
+    stop
+}
+package #lightGreen "void array_read(arr, len)" {
+    start
+    while (i = 0; i < len; i++)
+        - Ввод элемента массива arr[i]
+    endwhile
+    stop
+}
+package #lightGreen "void array_print(arr, len)" {
+    start
+    while (i = 0; i < len; i++)
+        - Вывод элемента массива arr[i]
+    endwhile
+    stop
+}
+package #lightGray "void array_sum(arr1, arr2, len, res)" {
+    start
+    while (i = 0; i < len; i++)
+        - res[i] = a[i] + b[i]
+    endwhile
+    - вернуть res
+    stop
+}
+@enduml

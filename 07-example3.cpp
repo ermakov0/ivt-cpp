@@ -1,0 +1,31 @@
+// Написать функцию f(a,b), вычисляющую сумму квадратов
+// Продемонстрировать её работу для трех пар чисел.
+//
+// Организовать возврат значений с использованием: ссылки
+#include <iostream>
+
+using namespace std;
+
+void f(int a, int b, int &res);
+
+int main()
+{
+    for (size_t i = 0; i < 3; i++)
+    {
+        int n1, n2, y;
+
+        cout << "Введите число a: ";
+        cin >> n1;
+        cout << "Введите число b: ";
+        cin >> n2;
+
+        f(n1, n2, y /*out*/);
+
+        cout << "f(" << n1 << ", " << n2 << ") = " << y << endl;
+    }
+}
+
+void f(int a, int b, int &res)
+{
+    res = a * a + b * b;
+}
