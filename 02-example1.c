@@ -16,3 +16,7 @@ int main(void)
 
     printf("y=%.6lf\n", y);
 }
+
+// $ ./02-example1.out 
+// Введите x: 2
+// y=203.000000

@@ -31,3 +31,7 @@ int main(void)
 
     printf("y=%d\n", y);
 }
+
+// $ ./03-example4.out 
+// Введите x: 7
+// y=43

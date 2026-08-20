@@ -38,3 +38,8 @@ double f(FigType fig, double arg1, double arg2)
         return 0.0;
     }
 }
+
+// $ ./09-example1.out 
+// Площадь круга = 19.635
+// Площадь квадрата = 16
+// Площадь прямоугольника = 8

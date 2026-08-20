@@ -35,3 +35,6 @@ int main()
 
     cout << "Расширение файла: " << str << endl;
 }
+
+// $ ./08-example2.out 
+// Расширение файла: tar.xz

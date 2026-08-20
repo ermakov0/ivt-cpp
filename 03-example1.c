@@ -31,3 +31,7 @@ int main(void)
         printf("FALSE\n");
     }
 }
+
+// $ ./03-example1.out 
+// Введите числа a, b, c (через пробел): 1 0 0
+// TRUE

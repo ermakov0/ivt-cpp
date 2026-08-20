@@ -3,23 +3,33 @@
 // из исходного массива (в том же порядке).
 // Вывести размер полученного массива B и его содержимое.
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
+    ifstream fin("tests/05-example2.stdin");
+    ofstream fout("/tmp/05-example2.stdout");
+    if (!fin.is_open())
+    {
+        cerr << "Ошибка открытия файла" << std::endl;
+        return 1;
+    }
+    if (!fout.is_open())
+    {
+        cerr << "Ошибка открытия файла" << std::endl;
+        return 1;
+    }
+
     size_t len;
-
-    cout << "Введите длину массива: ";
-    cin >> len;
-
+    fin >> len;
     int *a = new int[len];
-
-    cout << "Введите элементы массива a (через пробел): ";
     for (size_t i = 0; i < len; i++)
     {
-        cin >> a[i];
+        fin >> a[i];
     }
+    fin.close();
 
     size_t j = 0;
     for (size_t i = 0; i < len; i++)
@@ -42,19 +52,23 @@ int main()
         }
     }
 
-    cout << "Длина массива b: " << j << endl;
+    fout /*<< "Длина массива b: "*/ << j << endl;
     for (size_t i = 0; i < j; i++)
     {
-        cout << b[i] << ' ';
+        fout << b[i] << ' ';
     }
-    cout << endl;
+    fout << endl;
+
+    fout.close();
 
     delete[] a;
     delete[] b;
 }
 
-// $ ./05-example4.out 
-// Введите длину массива: 6
-// Введите элементы массива a (через пробел): 1 2 -3 4 5 6
-// Длина массива b: 5
-// 1 2 4 5 6
+// $ cat tests/05-example2.stdin 
+// 6
+// 1 2 -3 4 5 6
+// $ ./10-example1.out 
+// $ cat /tmp/05-example2.stdout
+// 5
+// 1 2 4 5 6 

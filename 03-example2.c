@@ -21,3 +21,7 @@ int main(void)
 
     printf("a=%d b=%d c=%d\n", a, b, c);
 }
+
+// $ ./03-example2.out 
+// Введите числа a, b, c (через пробел): 1 3 56
+// a=2 b=6 c=112

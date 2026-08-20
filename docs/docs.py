@@ -55,14 +55,14 @@ def main():
 
     template = env.get_template('template.md')
 
-    variant = 0
-    context = {
-        'variant': variant + 1,
-    }
-    for i in lll:
-        context[f'lab{i}'] = variants[f'lab{i}'][variant].strip()
+    for variant in range(0, COUNT):
+        context = {
+            'variant': variant,
+        }
+        for i in lll:
+            context[f'lab{i}'] = variants[f'lab{i}'][variant].strip()
 
-    open(f'cpp-{variant + 1}.md', 'w').write(template.render(context))
+        open(f'cpp-{variant + 1}.md', 'w').write(template.render(context))
 
 
 if __name__ == '__main__':

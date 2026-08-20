@@ -6,10 +6,12 @@ CXXFLAGS = -std=c++98 -O2 -lm -Wall -Wextra -Wpedantic -Wconversion -Werror=vla 
 SOURCES_С = $(wildcard *.c)
 SOURCES_CXX = $(wildcard *.cpp)
 SOURCES_UML = $(shell find uml -name '*.puml')
+SOURCES_MD = $(shell find docs -name 'cpp-*.md')
 
 TARGETS_C = $(SOURCES_С:.c=.out)
 TARGETS_CXX = $(SOURCES_CXX:.cpp=.out)
 TARGETS_UML = $(SOURCES_UML:.puml=.svg)
+TARGETS_MD = $(SOURCES_MD:.md=.html)
 
 TESTS_C = $(SOURCES_С:.c=.test)
 TESTS_CXX = $(SOURCES_CXX:.cpp=.test)
@@ -33,7 +35,9 @@ svg: $(TARGETS_UML)
 %.svg: %.puml
 	java -jar ${HOME}/.local/bin/plantuml-1.2026.6.jar -tsvg -nometadata $<
 
-html: docs/cheatsheet.html docs/cpp-1.html
+# cd docs/ && XZ_OPT='-9' tar -cJf cpp.tar.xz cpp*.html
+
+html: docs/cheatsheet.html ${TARGETS_MD}
 
 %.html: %.md
 	pandoc $< -o $@ --standalone --toc --mathml
